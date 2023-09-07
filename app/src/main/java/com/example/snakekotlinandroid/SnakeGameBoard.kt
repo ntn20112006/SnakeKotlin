@@ -12,18 +12,23 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 
+// A grid like board composable
 @Composable
 fun SnakeGameBoard() {
     LazyHorizontalGrid(
+        // The size of the board in terms of squares
         rows = GridCells.Fixed(gridSize),
+        // The size of each individual square on the board
         modifier = Modifier.size((gridSize * backgroundGridSize).dp),
         content = {
+            // Loop through a list to determine if the square should be colour 1 or colour 2
             itemsIndexed((0..(gridSize * gridSize)).toList()) { index, item ->
                 val row = index / 16
                 val column = index % 16
                 val tempBackgroundColor =
                     if ((column + row) % 2 == 0) backgroundGridColor1
                     else backgroundGridColor2
+                // Drawing the square
                 Box(
                     modifier = Modifier
                         .size(backgroundGridSize.dp)
