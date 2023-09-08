@@ -2,6 +2,7 @@ package com.example.snakekotlinandroid
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
@@ -16,16 +17,16 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ControllerButtons() {
     Row {
-        ControlButton()
-        ControlButton()
-        ControlButton()
-        ControlButton()
+        ControlButton(::moveUp)
+        ControlButton(::moveDown)
+        ControlButton(::moveLeft)
+        ControlButton(::moveRight)
     }
 }
 
-//The individual control button
+//The individual control button taking in what function to execute
 @Composable
-fun ControlButton() {
+fun ControlButton(action: () -> Unit) {
     val buttonSize = 40.dp
     val buttonColour = Color.Gray
     //Drawing the circles
@@ -35,5 +36,21 @@ fun ControlButton() {
             .clip(CircleShape)
             .background(buttonColour)
             .border(5.dp, Color.Black, CircleShape)
+            .clickable {
+                action()
+            }
     )
+}
+
+fun moveUp() {
+    //Change the snake direction to up
+}
+fun moveDown() {
+    //Change the snake direction to down
+}
+fun moveLeft() {
+    //Change the snake direction to left
+}
+fun moveRight() {
+    //Change the snake direction to right
 }
