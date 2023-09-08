@@ -20,6 +20,7 @@ class MainActivity : ComponentActivity() {
 fun Background() {
     Column {
         SnakeGameBoard()
+        ControllerButtons()
     }
 }
 
