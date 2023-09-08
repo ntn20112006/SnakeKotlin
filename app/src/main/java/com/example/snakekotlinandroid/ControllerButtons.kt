@@ -12,6 +12,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+//The layout that holds all the control buttons
 @Composable
 fun ControllerButtons() {
     Row {
@@ -22,6 +23,7 @@ fun ControllerButtons() {
     }
 }
 
+//The individual control button
 @Composable
 fun ControlButton() {
     val buttonSize = 40.dp
